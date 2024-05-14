@@ -56,6 +56,9 @@
       autosuggestion = {
         enable = true;
       };
+      initExtraFirst = ''
+        source ~/.p10k.zsh
+      '';
       initExtra = ''
         export VOLTA_HOME="$HOME/.volta"
         export PATH="$VOLTA_HOME/bin:$PATH"
@@ -75,7 +78,8 @@
       extraConfig = ''
         local wez = require('wezterm')
         return {
-          font_size = 13.0,
+          font = wezterm.font("Operator Mono Lig", {weight="DemiLight", stretch="Normal", style="Normal"}),
+          font_size = 16.0,
           hide_tab_bar_if_only_one_tab = true,
           send_composed_key_when_left_alt_is_pressed = true,
           send_composed_key_when_right_alt_is_pressed = false,

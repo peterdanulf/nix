@@ -25,6 +25,7 @@
       environment.systemPackages = [
         pkgs.vim
         pkgs.gh
+        pkgs.zsh-powerlevel10k
         inputs.nixvim.packages.aarch64-darwin.default
       ];
 
@@ -53,6 +54,7 @@
       # Create /etc/zshrc that loads the nix-darwin environment.
       programs.zsh = {
         enable = true;
+        promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       };
 
       system = {
