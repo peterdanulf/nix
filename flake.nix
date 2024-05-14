@@ -33,8 +33,8 @@
         onActivation.autoUpdate = true;
         onActivation.cleanup = "uninstall";
         taps = [];
-        brews = [];
-        casks = ["slack" "spotify" "wezterm"];
+        brews = ["gnu-sed"];
+        casks = ["slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack"];
       };
 
       # Auto upgrade nix package and the daemon service.
@@ -51,14 +51,34 @@
       };
 
       # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;
+      programs.zsh = {
+        enable = true;
+      };
 
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
+      system = {
+        defaults = {
+          # minimal dock
+          dock = {
+            autohide = true;
+            orientation = "left";
+            show-process-indicators = false;
+            show-recents = false;
+            static-only = true;
+          };
+          # a finder that tells me what I want to know and lets me work
+          finder = {
+            AppleShowAllExtensions = true;
+            ShowPathbar = true;
+            FXEnableExtensionChangeWarning = false;
+          };
+        };
+        # Set Git commit hash for darwin-version.
+        configurationRevision = self.rev or self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 4;
+        # Used for backwards compatibility, please read the changelog before changing.
+        # $ darwin-rebuild changelog
+        stateVersion = 4;
+      };
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";

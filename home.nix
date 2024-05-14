@@ -36,14 +36,36 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.gnused
+    pkgs.volta
+    pkgs.ripgrep
+    pkgs.lazygit
+    pkgs.bat
+    pkgs.fd
+    pkgs.eza
+    pkgs.zoxide
   ];
 
   programs = {
     zsh = {
       enable = true;
+      enableCompletion = true;
+      syntaxHighlighting = {
+        enable = true;
+      };
+      autosuggestion = {
+        enable = true;
+      };
       initExtra = ''
+        export VOLTA_HOME="$HOME/.volta"
+        export PATH="$VOLTA_HOME/bin:$PATH"
+        eval "$(zoxide init zsh)"
       '';
       shellAliases = {
+        ls = "eza";
+        cd = "z";
+        cat = "bat";
+        find = "fd";
         switch = "nix run nix-darwin -- switch --flake ~/.config/nix/.#simple";
         update = "(cd ~/.config/nix && nix flake update)";
       };
