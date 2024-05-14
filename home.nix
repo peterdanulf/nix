@@ -42,6 +42,7 @@
     pkgs.lazygit
     pkgs.bat
     pkgs.fd
+    pkgs.bottom
     pkgs.eza
     pkgs.zoxide
   ];
