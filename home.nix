@@ -66,6 +66,7 @@
         eval "$(zoxide init zsh)"
       '';
       shellAliases = {
+        v = "nvim";
         ls = "eza";
         cd = "z";
         cat = "bat";
