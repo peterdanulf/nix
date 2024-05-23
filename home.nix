@@ -45,6 +45,7 @@
     pkgs.bottom
     pkgs.eza
     pkgs.zoxide
+    pkgs.mkcert
   ];
 
   programs = {
