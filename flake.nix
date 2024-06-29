@@ -87,8 +87,8 @@
     };
   in {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#MacBook-Pro-som-tillhor-Peter
-    darwinConfigurations."MacBook-Pro-som-tillhor-Peter" = nix-darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake .#simple
+    darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         home-manager.darwinModules.home-manager
@@ -104,6 +104,6 @@
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."MacBook-Pro-som-tillhor-Peter".pkgs;
+    darwinPackages = self.darwinConfigurations."simple".pkgs;
   };
 }
