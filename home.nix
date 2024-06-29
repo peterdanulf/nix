@@ -72,7 +72,7 @@
         cd = "z";
         cat = "bat";
         find = "fd";
-        switch = "nix run nix-darwin -- switch --flake ~/.config/nix/.#simple";
+        switch = "nix run nix-darwin -- switch --flake ~/.config/nix";
         update = "(cd ~/.config/nix && nix flake update)";
       };
     };
