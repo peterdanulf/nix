@@ -35,7 +35,7 @@
         onActivation.cleanup = "uninstall";
         taps = [];
         brews = ["gnu-sed"];
-        casks = ["slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream"];
+        casks = ["slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed"];
       };
 
       # Auto upgrade nix package and the daemon service.
