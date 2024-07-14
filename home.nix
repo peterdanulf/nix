@@ -37,6 +37,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.gnused
+    pkgs.dart
+    pkgs.cocoapods
     pkgs.volta
     pkgs.ripgrep
     pkgs.lazygit
@@ -62,6 +64,7 @@
         source ~/.p10k.zsh
       '';
       initExtra = ''
+        export PATH="$PATH":"$HOME/.pub-cache/bin"
         export VOLTA_HOME="$HOME/.volta"
         export PATH="$VOLTA_HOME/bin:$PATH"
         eval "$(zoxide init zsh)"
