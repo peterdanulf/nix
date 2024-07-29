@@ -49,6 +49,7 @@
     pkgs.zoxide
     pkgs.mkcert
     pkgs.firebase-tools
+    pkgs.rubyPackages_3_3.xcodeproj
   ];
 
   programs = {
