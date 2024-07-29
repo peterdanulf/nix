@@ -49,6 +49,7 @@
     pkgs.zoxide
     pkgs.mkcert
     pkgs.firebase-tools
+    pkgs.ruby_3_3
     pkgs.rubyPackages_3_3.xcodeproj
   ];
 
