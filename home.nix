@@ -48,6 +48,7 @@
     pkgs.eza
     pkgs.zoxide
     pkgs.mkcert
+    pkgs.firebase-tools
   ];
 
   programs = {
