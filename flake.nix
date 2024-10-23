@@ -27,6 +27,11 @@
         pkgs.gh
         pkgs.zsh-powerlevel10k
         inputs.nixvim.packages.aarch64-darwin.default
+        # Add Python with necessary packages
+        (pkgs.python310.withPackages (ps:
+          with ps; [
+            rapidfuzz
+          ]))
       ];
 
       homebrew = {
