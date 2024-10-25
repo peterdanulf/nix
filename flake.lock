@@ -366,11 +366,11 @@
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
-        "lastModified": 1729769466,
-        "narHash": "sha256-K71d3E2qB2VdYuVU7Qzwyj0vRloaRUFQ+TyQ6SZ1M7g=",
+        "lastModified": 1729772075,
+        "narHash": "sha256-nld0ooVmEj0YcP0XeFtAp8WoMqIVmLxoHhexDl7ht1g=",
         "owner": "peterdanulf",
         "repo": "nixvim",
-        "rev": "039f6d6aa83f066f2e6c129a134fb2e9f50b541f",
+        "rev": "668976a1553e779f898ee455e8a5aa80e8c69e38",
         "type": "github"
       },
       "original": {
