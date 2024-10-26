@@ -51,6 +51,7 @@
     pkgs.firebase-tools
     pkgs.ruby_3_3
     pkgs.wget
+    pkgs.fzf
   ];
 
   programs = {
