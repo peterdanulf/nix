@@ -41,6 +41,7 @@
     pkgs.cocoapods
     pkgs.volta
     pkgs.ripgrep
+    pkgs.ast-grep
     pkgs.lazygit
     pkgs.bat
     pkgs.fd
