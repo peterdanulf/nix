@@ -52,6 +52,7 @@
     pkgs.ruby_3_3
     pkgs.wget
     pkgs.fzf
+    pkgs.neovim
   ];
 
   programs = {
