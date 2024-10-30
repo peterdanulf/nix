@@ -33,6 +33,8 @@
             rapidfuzz
             pandas
           ]))
+        # Add Cargo for Rust
+        pkgs.rustup
       ];
 
       homebrew = {
