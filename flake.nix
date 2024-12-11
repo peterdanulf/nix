@@ -24,6 +24,7 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
         pkgs.vim
+        pkgs.neovide
         pkgs.gh
         pkgs.zsh-powerlevel10k
         inputs.nixvim.packages.aarch64-darwin.default
@@ -43,7 +44,7 @@
         onActivation.cleanup = "uninstall";
         taps = [];
         brews = ["gnu-sed"];
-        casks = ["slack" "spotify" "wezterm" "neovide" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "gimp"];
+        casks = ["slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "gimp"];
       };
 
       # Auto upgrade nix package and the daemon service.
