@@ -93,7 +93,7 @@
           font = wezterm.font("Operator Mono Lig", {weight="DemiLight", stretch="Normal", style="Normal"}),
           font_size = 16.0,
           hide_tab_bar_if_only_one_tab = true,
-          send_composed_key_when_left_alt_is_pressed = false,
+          send_composed_key_when_left_alt_is_pressed = true,
           send_composed_key_when_right_alt_is_pressed = false,
           color_scheme = "Tokyo Night",
         }
@@ -103,17 +103,18 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+  # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+  # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+  # # symlink to the Nix store copy.
+  # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  # # You can also set the file content immediately.
+  # ".gradle/gradle.properties".text = ''
+  #   org.gradle.console=verbose
+  #   org.gradle.daemon.idletimeout=3600000
+  # '';
+  home.file.".anthropic_key" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.anthropic_key";
   };
 
   # Home Manager can also manage your environment variables through
@@ -129,6 +130,8 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    # Load API key from the .anthropic_key file
+    ANTHROPIC_API_KEY = ''$(cat ${config.home.homeDirectory}/.anthropic_key)'';
   };
 
   # Let Home Manager install and manage itself.
