@@ -93,7 +93,7 @@
           font = wezterm.font("Operator Mono Lig", {weight="DemiLight", stretch="Normal", style="Normal"}),
           font_size = 16.0,
           hide_tab_bar_if_only_one_tab = true,
-          send_composed_key_when_left_alt_is_pressed = true,
+          send_composed_key_when_left_alt_is_pressed = false,
           send_composed_key_when_right_alt_is_pressed = false,
           color_scheme = "Tokyo Night",
         }
