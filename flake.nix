@@ -47,8 +47,6 @@
         casks = ["slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit"];
       };
 
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
