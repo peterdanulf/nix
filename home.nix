@@ -113,8 +113,15 @@
   #   org.gradle.console=verbose
   #   org.gradle.daemon.idletimeout=3600000
   # '';
-  home.file.".anthropic_key" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.anthropic_key";
+  home.file = {
+    ".anthropic_key" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.anthropic_key";
+    };
+    
+    # Add Neovim configuration
+    ".config/nvim" = {
+      source = ./dotfiles/nvim;
+    };
   };
 
   # Home Manager can also manage your environment variables through
