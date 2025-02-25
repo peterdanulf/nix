@@ -117,6 +117,10 @@
     ".anthropic_key" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.anthropic_key";
     };
+    # gh repo clone peterdanulf/dotfiles ~/dotfiles
+    ".config/nvim" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
+    };
   };
 
   # Home Manager can also manage your environment variables through
