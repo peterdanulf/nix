@@ -54,6 +54,13 @@
     pkgs.wget
     pkgs.fzf
     pkgs.neovim
+    # Rust development tools
+    pkgs.rustc
+    pkgs.cargo
+    pkgs.rustfmt
+    pkgs.clippy
+    pkgs.rust-analyzer
+    #
   ];
 
   programs = {
