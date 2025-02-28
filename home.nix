@@ -37,7 +37,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.gnused
-    pkgs.dart
     pkgs.cocoapods
     pkgs.volta
     pkgs.ripgrep
