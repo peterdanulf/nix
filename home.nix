@@ -61,6 +61,7 @@
     pkgs.clippy
     pkgs.rust-analyzer
     #
+    pkgs.flutter
   ];
 
   programs = {
