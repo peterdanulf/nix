@@ -59,6 +59,8 @@
     pkgs.rustfmt
     pkgs.clippy
     pkgs.rust-analyzer
+    # PHP
+    pkgs.php
     #
     pkgs.flutter
   ];
