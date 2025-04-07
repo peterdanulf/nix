@@ -59,6 +59,7 @@
     pkgs.rustfmt
     pkgs.clippy
     pkgs.rust-analyzer
+    pkgs.mysql-client
     # PHP
     pkgs.php
     #
