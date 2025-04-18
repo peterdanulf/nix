@@ -60,6 +60,8 @@
     pkgs.clippy
     pkgs.rust-analyzer
     pkgs.mysql-client
+    pkgs.supabase-cli
+
     # PHP
     pkgs.php
     #
