@@ -27,6 +27,7 @@
         pkgs.neovide
         pkgs.gh
         pkgs.google-cloud-sdk
+        pkgs.glow
         pkgs.zsh-powerlevel10k
         inputs.nixvim.packages.aarch64-darwin.default
         # Add Python with necessary packages
