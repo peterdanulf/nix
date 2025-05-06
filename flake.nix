@@ -44,7 +44,7 @@
         onActivation.cleanup = "uninstall";
         taps = [];
         brews = ["gnu-sed"];
-        casks = ["bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit"];
+        casks = ["google-cloud-sdk" "bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit"];
       };
 
       # nix.package = pkgs.nix;
