@@ -26,6 +26,7 @@
         pkgs.vim
         pkgs.neovide
         pkgs.gh
+        pkgs.google-cloud-sdk
         pkgs.zsh-powerlevel10k
         inputs.nixvim.packages.aarch64-darwin.default
         # Add Python with necessary packages
@@ -44,7 +45,7 @@
         onActivation.cleanup = "uninstall";
         taps = [];
         brews = ["gnu-sed"];
-        casks = ["google-cloud-sdk" "bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit"];
+        casks = ["bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit"];
       };
 
       # nix.package = pkgs.nix;
