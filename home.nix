@@ -93,7 +93,7 @@
         cd = "z";
         cat = "bat";
         find = "fd";
-        switch = "nix run nix-darwin -- switch --flake ~/.config/nix/.#simple";
+        switch = "sudo nix run nix-darwin -- switch --flake ~/.config/nix/.#simple";
         update = "(cd ~/.config/nix && nix flake update)";
       };
     };
