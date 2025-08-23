@@ -67,6 +67,7 @@
       };
 
       system = {
+        primaryUser = "peterdanulf";
         defaults = {
           # minimal dock
           dock = {
