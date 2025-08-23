@@ -95,6 +95,7 @@
         find = "fd";
         switch = "nix run nix-darwin -- switch --flake ~/.config/nix/.#simple";
         update = "(cd ~/.config/nix && nix flake update)";
+        wal-mini = "wakeonlan 18:4a:53:04:9b:e1"; # Mac Mini Wi-Fi MAC
       };
     };
     wezterm = {
