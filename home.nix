@@ -61,6 +61,7 @@
     pkgs.rust-analyzer
     pkgs.mysql-client
     pkgs.supabase-cli
+    pkgs.wakeonlan
 
     # PHP
     pkgs.php
