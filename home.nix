@@ -62,6 +62,18 @@
     pkgs.mysql-client
     pkgs.supabase-cli
 
+    # Minimal rust-src for rust-analyzer (no collisions with Flutter)
+    (pkgs.stdenv.mkDerivation {
+      name = "rust-src-for-analyzer";
+      src = pkgs.rustPlatform.rustcSrc;
+      installPhase = ''
+        mkdir -p $out/lib/rustlib/src/rust
+        cp -r $src/library $out/lib/rustlib/src/rust/
+        # Optional: some tools look for /src too
+        cp -r $src/src $out/lib/rustlib/src/rust/ || true
+      '';
+    })
+
     # PHP
     pkgs.php
     #
