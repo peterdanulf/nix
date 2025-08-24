@@ -53,6 +53,10 @@
     pkgs.wget
     pkgs.fzf
     pkgs.neovim
+    # Rust toolchain with all components
+    (pkgs.rust-bin.stable.latest.default.override {
+      extensions = [ "rust-src" "rust-analyzer" ];
+    })
     pkgs.mysql-client
     pkgs.supabase-cli
 
