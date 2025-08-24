@@ -101,7 +101,7 @@
         source ~/.p10k.zsh
         
         # Override p10k context format for SSH highlighting
-        typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{lightgreen}🔒 %n@%m%f"
+        typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{#90EE90}🔒 %n@%m%f"
         typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context time)
       '';
       initExtra = ''
