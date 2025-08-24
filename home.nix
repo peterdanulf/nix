@@ -79,6 +79,9 @@
     
     # Go
     pkgs.go
+    pkgs.gopls
+    pkgs.gofumpt
+    pkgs.golangci-lint
     #
     pkgs.flutter
   ];
