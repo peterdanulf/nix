@@ -6,6 +6,7 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:peterdanulf/nixvim";
+    rust-overlay.url = "github:oxalica/rust-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +18,7 @@
     nix-darwin,
     nixpkgs,
     nixvim,
+    rust-overlay,
     home-manager,
   }: let
     configuration = {pkgs, ...}: {
@@ -36,8 +38,10 @@
             rapidfuzz
             pandas
           ]))
-        # Add Cargo for Rust
-        pkgs.rustup
+        # Rust toolchain with all components
+        (pkgs.rust-bin.stable.latest.default.override {
+          extensions = [ "rust-src" "rust-analyzer" ];
+        })
       ];
 
       homebrew = {
@@ -100,6 +104,9 @@
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
       modules = [
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+        })
         configuration
         home-manager.darwinModules.home-manager
         {
