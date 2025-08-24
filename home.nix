@@ -50,7 +50,9 @@
     pkgs.zsh-powerlevel10k
     pkgs.gnused
     pkgs.cocoapods
-    pkgs.volta
+    pkgs.nodejs_20
+    pkgs.bun
+    pkgs.claude-code
     pkgs.ripgrep
     pkgs.ast-grep
     pkgs.lazygit
@@ -94,8 +96,6 @@
       '';
       initExtra = ''
         export PATH="$PATH":"$HOME/.pub-cache/bin"
-        export VOLTA_HOME="$HOME/.volta"
-        export PATH="$VOLTA_HOME/bin:$PATH"
         eval "$(zoxide init zsh)"
       '';
       shellAliases = {
