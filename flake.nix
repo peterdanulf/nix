@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.url = "github:peterdanulf/nixvim";
     rust-overlay.url = "github:oxalica/rust-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,7 +16,6 @@
     self,
     nix-darwin,
     nixpkgs,
-    nixvim,
     rust-overlay,
     home-manager,
   }: let
@@ -100,7 +98,6 @@
             useUserPackages = true;
             verbose = true;
             users.peterdanulf = import ./home.nix;
-            extraSpecialArgs = { nixvim = inputs.nixvim; };
           };
         }
       ];
