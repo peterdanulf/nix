@@ -52,7 +52,7 @@
     pkgs.cocoapods
     pkgs.nodejs_20
     pkgs.bun
-    pkgs.claude-code
+    (pkgs.lib.hiPrio pkgs.claude-code)
     pkgs.ripgrep
     pkgs.ast-grep
     pkgs.lazygit
@@ -76,6 +76,9 @@
 
     # PHP
     pkgs.php
+    
+    # Go
+    pkgs.go
     #
     pkgs.flutter
   ];
