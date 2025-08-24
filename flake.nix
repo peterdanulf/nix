@@ -24,7 +24,6 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
         pkgs.google-cloud-sdk
-        pkgs.zsh-powerlevel10k
       ];
 
       homebrew = {
@@ -33,7 +32,7 @@
         onActivation.cleanup = "uninstall";
         taps = [];
         brews = ["gnu-sed"];
-        casks = ["bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "flutter" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit"];
+        casks = ["bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit"];
       };
 
       # nix.package = pkgs.nix;
@@ -50,7 +49,6 @@
       # Create /etc/zshrc that loads the nix-darwin environment.
       programs.zsh = {
         enable = true;
-        promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       };
 
       system = {
