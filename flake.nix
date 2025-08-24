@@ -25,19 +25,8 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
-        pkgs.vim
-        pkgs.neovide
-        pkgs.gh
         pkgs.google-cloud-sdk
-        pkgs.glow
         pkgs.zsh-powerlevel10k
-        inputs.nixvim.packages.aarch64-darwin.default
-        # Add Python with necessary packages
-        (pkgs.python3.withPackages (ps:
-          with ps; [
-            rapidfuzz
-            pandas
-          ]))
       ];
 
       homebrew = {
@@ -111,6 +100,7 @@
             useUserPackages = true;
             verbose = true;
             users.peterdanulf = import ./home.nix;
+            extraSpecialArgs = { nixvim = inputs.nixvim; };
           };
         }
       ];

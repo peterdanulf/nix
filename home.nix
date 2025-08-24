@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  nixvim,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -36,6 +37,19 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    # Development tools moved from flake.nix
+    pkgs.vim
+    pkgs.neovide
+    pkgs.gh
+    pkgs.glow
+    nixvim.packages.aarch64-darwin.default
+    # Add Python with necessary packages
+    (pkgs.python3.withPackages (ps:
+      with ps; [
+        rapidfuzz
+        pandas
+      ]))
+    
     pkgs.gnused
     pkgs.cocoapods
     pkgs.volta
