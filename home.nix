@@ -99,6 +99,10 @@
       initExtraFirst = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         source ~/.p10k.zsh
+        
+        # Override p10k context format for SSH highlighting
+        typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%K{red}%F{white} 🔒 %n@%m %f%k"
+        typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context time)
       '';
       initExtra = ''
         export PATH="$PATH":"$HOME/.pub-cache/bin"
