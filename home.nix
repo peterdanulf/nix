@@ -45,6 +45,7 @@
       with ps; [
         rapidfuzz
         pandas
+        openai-whisper
       ]))
     
     pkgs.zsh-powerlevel10k
@@ -84,6 +85,7 @@
     pkgs.golangci-lint
     #
     pkgs.flutter
+    pkgs.sox
   ];
 
   programs = {
