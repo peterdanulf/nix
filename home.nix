@@ -83,8 +83,6 @@
     pkgs.gopls
     pkgs.gofumpt
     pkgs.golangci-lint
-    #
-    pkgs.flutter
     pkgs.sox
   ];
 
@@ -108,6 +106,11 @@
       '';
       initExtra = ''
         export PATH="$PATH":"$HOME/.pub-cache/bin"
+        # Add Flutter to PATH (find the latest version dynamically)
+        if [ -d "/opt/homebrew/Caskroom/flutter" ]; then
+          FLUTTER_VERSION=$(ls /opt/homebrew/Caskroom/flutter/ | grep -v '.metadata' | sort -V | tail -1)
+          export PATH="$PATH:/opt/homebrew/Caskroom/flutter/$FLUTTER_VERSION/flutter/bin"
+        fi
         eval "$(zoxide init zsh)"
       '';
       shellAliases = {
