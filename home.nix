@@ -84,6 +84,7 @@
     pkgs.gofumpt
     pkgs.golangci-lint
     pkgs.sox
+    pkgs.ngrok
   ];
 
   programs = {
