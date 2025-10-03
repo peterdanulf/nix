@@ -51,7 +51,7 @@
     pkgs.zsh-powerlevel10k
     pkgs.gnused
     pkgs.cocoapods
-    pkgs.nodejs_20
+    pkgs.nodejs_22
     pkgs.bun
     (pkgs.lib.hiPrio pkgs.claude-code)
     pkgs.ripgrep
