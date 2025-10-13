@@ -106,6 +106,8 @@
         typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context time)
       '';
       initExtra = ''
+        # Source Claude OAuth token if it exists
+        [[ -f ~/.claude_oauth_token ]] && source ~/.claude_oauth_token
         export PATH="$PATH":"$HOME/.pub-cache/bin"
         # Add Flutter to PATH (find the latest version dynamically)
         if [ -d "/opt/homebrew/Caskroom/flutter" ]; then
@@ -155,6 +157,9 @@
   home.file = {
     ".anthropic_key" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.anthropic_key";
+    };
+    ".claude_oauth_token" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude_oauth_token";
     };
     # gh repo clone peterdanulf/dotfiles ~/dotfiles
     ".config/nvim" = {
