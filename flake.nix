@@ -37,27 +37,40 @@
         casks = ["bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude"];
       };
 
-      # Configure dnsmasq using launchd
-      # Note: Update tailscaleIP when your Tailscale IP changes
-      launchd.daemons.dnsmasq = let
-        tailscaleIP = "100.92.156.113";  # Mac Mini's Tailscale IP
-      in {
-        path = [ pkgs.dnsmasq ];
+      # Configure dnsmasq using launchd with dynamic Tailscale IP
+      launchd.daemons.dnsmasq = {
+        path = [ pkgs.dnsmasq pkgs.tailscale pkgs.coreutils ];
+        script = ''
+          # Create directory for hosts file
+          mkdir -p /var/run/dnsmasq
+
+          # Get current Tailscale IP dynamically
+          TAILSCALE_IP=$(${pkgs.tailscale}/bin/tailscale ip -4 2>/dev/null | head -n1)
+
+          # Fall back to localhost if Tailscale isn't running
+          if [ -z "$TAILSCALE_IP" ]; then
+            TAILSCALE_IP="127.0.0.1"
+          fi
+
+          # Generate hosts file with current IP
+          cat > /var/run/dnsmasq/skippo.hosts <<EOF
+          $TAILSCALE_IP skippo.test
+          $TAILSCALE_IP www.skippo.test
+          $TAILSCALE_IP cms.skippo.test
+          EOF
+
+          # Start dnsmasq
+          exec ${pkgs.dnsmasq}/bin/dnsmasq \
+            --keep-in-foreground \
+            --port=53 \
+            --no-daemon \
+            --addn-hosts=/var/run/dnsmasq/skippo.hosts \
+            --listen-address=0.0.0.0 \
+            --server=100.100.100.100 \
+            --server=8.8.8.8 \
+            --cache-size=1000
+        '';
         serviceConfig = {
-          ProgramArguments = [
-            "${pkgs.dnsmasq}/bin/dnsmasq"
-            "--keep-in-foreground"
-            "--port=53"
-            "--no-daemon"
-            "--no-hosts"
-            "--listen-address=0.0.0.0"
-            "--server=100.100.100.100"  # Tailscale DNS
-            "--server=8.8.8.8"  # Google DNS fallback
-            "--cache-size=1000"
-            "--address=/skippo.test/${tailscaleIP}"
-            "--address=/www.skippo.test/${tailscaleIP}"
-            "--address=/cms.skippo.test/${tailscaleIP}"
-          ];
           RunAtLoad = true;
           KeepAlive = true;
           UserName = "root";
