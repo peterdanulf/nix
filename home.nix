@@ -88,6 +88,28 @@
   ];
 
   programs = {
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      matchBlocks = {
+        "*" = {
+          serverAliveInterval = 60;
+          serverAliveCountMax = 120;
+          extraOptions = {
+            TCPKeepAlive = "yes";
+            ForwardAgent = "no";
+            Compression = "no";
+            AddKeysToAgent = "no";
+            HashKnownHosts = "no";
+            UserKnownHostsFile = "~/.ssh/known_hosts";
+            ControlMaster = "no";
+            ControlPath = "~/.ssh/master-%r@%n:%p";
+            ControlPersist = "no";
+          };
+        };
+      };
+      includes = [ "~/.orbstack/ssh/config" ];
+    };
     zsh = {
       enable = true;
       enableCompletion = true;

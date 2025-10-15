@@ -108,6 +108,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             verbose = true;
+            backupFileExtension = "backup";
             users.peterdanulf = import ./home.nix;
           };
         }
