@@ -128,8 +128,6 @@
         typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context time)
       '';
       initExtra = ''
-        # Source Claude OAuth token if it exists
-        [[ -f ~/.claude_oauth_token ]] && source ~/.claude_oauth_token
         export PATH="$PATH":"$HOME/.pub-cache/bin"
         # Add Flutter to PATH (find the latest version dynamically)
         if [ -d "/opt/homebrew/Caskroom/flutter" ]; then
@@ -197,7 +195,8 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     # Load API key from the .anthropic_key file
-    ANTHROPIC_API_KEY = ''$(cat ${config.home.homeDirectory}/.anthropic_key)'';
+    # ANTHROPIC_API_KEY = ''$(cat ${config.home.homeDirectory}/.anthropic_key)'';
+    CLAUDE_CODE_OAUTH_TOKEN = ''$(cat ${config.home.homeDirectory}/.claude_oauth_token)'';
   };
 
   # Let Home Manager install and manage itself.
