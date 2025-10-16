@@ -194,8 +194,6 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-    # Load API key from the .anthropic_key file
-    # ANTHROPIC_API_KEY = ''$(cat ${config.home.homeDirectory}/.anthropic_key)'';
     CLAUDE_CODE_OAUTH_TOKEN = ''$(cat ${config.home.homeDirectory}/.claude_oauth_token)'';
   };
 
