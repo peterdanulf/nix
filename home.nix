@@ -194,6 +194,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    # To add token: echo "your-token-here" > ~/.claude_oauth_token
     CLAUDE_CODE_OAUTH_TOKEN = ''$(cat ${config.home.homeDirectory}/.claude_oauth_token)'';
   };
 
