@@ -177,9 +177,6 @@
   #   org.gradle.daemon.idletimeout=3600000
   # '';
   home.file = {
-    ".claude_oauth_token" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude_oauth_token";
-    };
     # gh repo clone peterdanulf/dotfiles ~/dotfiles
     ".config/nvim" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
