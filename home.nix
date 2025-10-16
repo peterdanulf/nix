@@ -177,9 +177,6 @@
   #   org.gradle.daemon.idletimeout=3600000
   # '';
   home.file = {
-    ".anthropic_key" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.anthropic_key";
-    };
     ".claude_oauth_token" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude_oauth_token";
     };
