@@ -86,6 +86,7 @@
     pkgs.sox
     pkgs.ngrok
     pkgs.yarn
+    pkgs.bws
   ];
 
   programs = {
