@@ -85,6 +85,7 @@
     pkgs.golangci-lint
     pkgs.sox
     pkgs.ngrok
+    pkgs.yarn
   ];
 
   programs = {
