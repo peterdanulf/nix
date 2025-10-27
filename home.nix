@@ -198,6 +198,7 @@
     EDITOR = "nvim";
     # To add token: echo "your-token-here" > ~/.claude_oauth_token
     CLAUDE_CODE_OAUTH_TOKEN = ''$(cat ${config.home.homeDirectory}/.claude_oauth_token)'';
+    BWS_ACCESS_TOKEN = ''$(cat ${config.home.homeDirectory}/.bws_access_token)'';
   };
 
   # Let Home Manager install and manage itself.
