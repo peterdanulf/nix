@@ -20,6 +20,8 @@
     home-manager,
   }: let
     configuration = {pkgs, ...}: {
+      # Disable nix-darwin's Nix management (using Determinate Nix)
+      nix.enable = false;
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       # Install packages from nixpkgs
