@@ -68,6 +68,12 @@
     pkgs.wget
     pkgs.fzf
     pkgs.neovim
+    pkgs.sox
+    pkgs.ngrok
+    pkgs.yarn
+    pkgs.bws
+    pkgs.lazydocker
+
     # Rust toolchain with all components
     (pkgs.rust-bin.stable.latest.default.override {
       extensions = [ "rust-src" "rust-analyzer" ];
@@ -83,10 +89,6 @@
     pkgs.gopls
     pkgs.gofumpt
     pkgs.golangci-lint
-    pkgs.sox
-    pkgs.ngrok
-    pkgs.yarn
-    pkgs.bws
   ];
 
   programs = {
