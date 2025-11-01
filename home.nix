@@ -92,6 +92,11 @@
   ];
 
   programs = {
+    git = {
+      enable = true;
+      userEmail = "peter.danulf@gmail.com";
+      userName = "Peter Danulf";
+    };
     ssh = {
       enable = true;
       enableDefaultConfig = false;
