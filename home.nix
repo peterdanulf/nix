@@ -128,15 +128,14 @@
       autosuggestion = {
         enable = true;
       };
-      initExtraFirst = ''
+      initContent = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         source ~/.p10k.zsh
-        
+
         # Override p10k context format for SSH highlighting
         typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{#90EE90}🔒 %n@%m%f"
         typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context time)
-      '';
-      initExtra = ''
+
         export PATH="$PATH":"$HOME/.pub-cache/bin"
         # Add Flutter to PATH (find the latest version dynamically)
         if [ -d "/opt/homebrew/Caskroom/flutter" ]; then
@@ -203,6 +202,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    TERM = "xterm-256color";
     # To add token: echo "your-token-here" > ~/.claude_oauth_token
     CLAUDE_CODE_OAUTH_TOKEN = ''$(cat ${config.home.homeDirectory}/.claude_oauth_token)'';
     BWS_ACCESS_TOKEN = ''$(cat ${config.home.homeDirectory}/.bws_access_token)'';
