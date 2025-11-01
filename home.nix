@@ -8,6 +8,9 @@
   home.username = "peterdanulf";
   home.homeDirectory = "/Users/peterdanulf";
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -63,7 +66,6 @@
     pkgs.eza
     pkgs.zoxide
     pkgs.mkcert
-    pkgs.firebase-tools
     pkgs.ruby_3_3
     pkgs.wget
     pkgs.fzf
@@ -73,12 +75,10 @@
     pkgs.yarn
     pkgs.bws
     pkgs.lazydocker
-
-    # Rust toolchain with all components
-    (pkgs.rust-bin.stable.latest.default.override {
-      extensions = [ "rust-src" "rust-analyzer" ];
-    })
-    pkgs.mysql-client
+    pkgs.rustc
+    pkgs.cargo
+    pkgs.rust-analyzer
+    pkgs.mariadb.client
     pkgs.supabase-cli
 
     # PHP
@@ -94,8 +94,10 @@
   programs = {
     git = {
       enable = true;
-      userEmail = "peter.danulf@gmail.com";
-      userName = "Peter Danulf";
+      settings = {
+        user.name = "Peter Danulf";
+        user.email = "peter.danulf@gmail.com";
+      };
     };
     ssh = {
       enable = true;

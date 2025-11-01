@@ -107,8 +107,6 @@
         home-manager.darwinModules.home-manager
         {
           home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
             verbose = true;
             backupFileExtension = "backup";
             users.peterdanulf = import ./home.nix;
