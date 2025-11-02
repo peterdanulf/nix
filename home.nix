@@ -189,6 +189,12 @@
     ".config/nvim" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
     };
+    ".config/ghostty/config" = {
+      text = ''
+        font-family = Operator Mono Lig
+        font-size = 16
+      '';
+    };
   };
 
   # Home Manager can also manage your environment variables through
