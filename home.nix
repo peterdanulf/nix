@@ -193,6 +193,7 @@
       text = ''
         font-family = Operator Mono Lig
         font-size = 16
+        macos-option-as-alt = true
       '';
     };
   };
