@@ -53,6 +53,7 @@
     
     pkgs.zsh-powerlevel10k
     pkgs.gnused
+    pkgs.sd
     pkgs.cocoapods
     pkgs.nodejs_24
     pkgs.bun
@@ -80,6 +81,10 @@
     pkgs.rust-analyzer
     pkgs.mariadb.client
     pkgs.supabase-cli
+    pkgs.duf
+    pkgs.dust
+    pkgs.procs
+    pkgs.navi
 
     # PHP
     pkgs.php
@@ -156,6 +161,7 @@
           export PATH="$PATH:/opt/homebrew/Caskroom/flutter/$FLUTTER_VERSION/flutter/bin"
         fi
         eval "$(zoxide init zsh)"
+        eval "$(navi widget zsh)"
       '';
       shellAliases = {
         v = "nvim";
@@ -163,6 +169,9 @@
         cd = "z";
         cat = "bat";
         find = "fd";
+        df = "duf";
+        du = "dust";
+        ps = "procs";
         switch = "sudo nix run nix-darwin -- switch --flake ~/.config/nix/.#simple";
         update = "(cd ~/.config/nix && nix flake update)";
       };
