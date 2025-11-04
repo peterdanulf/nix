@@ -94,6 +94,9 @@
     pkgs.gopls
     pkgs.gofumpt
     pkgs.golangci-lint
+
+    # Nix linter and formatter
+    pkgs.statix
   ];
 
   programs = {
