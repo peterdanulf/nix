@@ -97,6 +97,9 @@
 
     # Nix linter and formatter
     pkgs.statix
+
+    # Command-line help pages
+    pkgs.tealdeer
   ];
 
   programs = {
