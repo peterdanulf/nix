@@ -92,6 +92,10 @@
   ];
 
   programs = {
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     git = {
       enable = true;
       settings = {
@@ -137,6 +141,13 @@
         # Override p10k context format for SSH highlighting
         typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{#90EE90}🔒 %n@%m%f"
         typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context time)
+
+        # FZF configuration for Ctrl+R
+        export FZF_CTRL_R_OPTS="
+          --preview 'echo {}'
+          --preview-window down:3:wrap
+          --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+        "
 
         export PATH="$PATH":"$HOME/.pub-cache/bin"
         # Add Flutter to PATH (find the latest version dynamically)
