@@ -85,6 +85,7 @@
     pkgs.dust
     pkgs.procs
     pkgs.navi
+    pkgs.tealdeer
 
     # PHP
     pkgs.php
@@ -97,9 +98,6 @@
 
     # Nix linter and formatter
     pkgs.statix
-
-    # Command-line help pages
-    pkgs.tealdeer
   ];
 
   programs = {
