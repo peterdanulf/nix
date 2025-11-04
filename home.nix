@@ -84,7 +84,6 @@
     pkgs.duf
     pkgs.dust
     pkgs.procs
-    pkgs.navi
     pkgs.tealdeer
 
     # PHP
@@ -165,7 +164,6 @@
           export PATH="$PATH:/opt/homebrew/Caskroom/flutter/$FLUTTER_VERSION/flutter/bin"
         fi
         eval "$(zoxide init zsh)"
-        eval "$(navi widget zsh)"
       '';
       shellAliases = {
         v = "nvim";
