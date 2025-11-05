@@ -101,7 +101,7 @@ in {
   programs.oh-my-posh = {
     enable = true;
     enableNushellIntegration = true;
-    useTheme = "robbyrussell";
+    useTheme = "tokyonight_storm";
   };
 
   programs.atuin = {
