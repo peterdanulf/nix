@@ -27,6 +27,7 @@
       # Install packages from nixpkgs
       environment.systemPackages = with pkgs; [
         google-cloud-sdk
+        nushell
       ];
 
       homebrew = {
@@ -51,16 +52,15 @@
         pmset -a disksleep 10        # Disk can sleep when inactive
       '';
 
-      # Set home path.
+      # Set home path and shell.
       users.users.peterdanulf = {
         name = "peterdanulf";
         home = "/Users/peterdanulf";
+        shell = pkgs.nushell;
       };
 
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh = {
-        enable = true;
-      };
+      # Add nushell to /etc/shells so it can be used as a default shell
+      environment.shells = [ pkgs.nushell ];
 
       system = {
         primaryUser = "peterdanulf";

@@ -3,6 +3,9 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./nushell.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "peterdanulf";
@@ -50,8 +53,7 @@
         pandas
         openai-whisper
       ]))
-    
-    pkgs.zsh-powerlevel10k
+
     pkgs.gnused
     pkgs.sd
     pkgs.cocoapods
@@ -64,7 +66,6 @@
     pkgs.bat
     pkgs.fd
     pkgs.bottom
-    pkgs.eza
     pkgs.zoxide
     pkgs.mkcert
     pkgs.ruby_3_3
@@ -102,7 +103,6 @@
   programs = {
     fzf = {
       enable = true;
-      enableZshIntegration = true;
     };
     git = {
       enable = true;
@@ -133,51 +133,6 @@
       };
       includes = [ "~/.orbstack/ssh/config" ];
     };
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting = {
-        enable = true;
-      };
-      autosuggestion = {
-        enable = true;
-      };
-      initContent = ''
-        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-        source ~/.p10k.zsh
-
-        # Override p10k context format for SSH highlighting
-        typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{#90EE90}🔒 %n@%m%f"
-        typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context time)
-
-        # FZF configuration for Ctrl+R
-        export FZF_CTRL_R_OPTS="
-          --preview 'echo {}'
-          --preview-window down:3:wrap
-          --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-        "
-
-        export PATH="$PATH":"$HOME/.pub-cache/bin"
-        # Add Flutter to PATH (find the latest version dynamically)
-        if [ -d "/opt/homebrew/Caskroom/flutter" ]; then
-          FLUTTER_VERSION=$(ls /opt/homebrew/Caskroom/flutter/ | grep -v '.metadata' | sort -V | tail -1)
-          export PATH="$PATH:/opt/homebrew/Caskroom/flutter/$FLUTTER_VERSION/flutter/bin"
-        fi
-        eval "$(zoxide init zsh)"
-      '';
-      shellAliases = {
-        v = "nvim";
-        ls = "eza";
-        cd = "z";
-        cat = "bat";
-        find = "fd";
-        df = "duf";
-        du = "dust";
-        ps = "procs";
-        switch = "sudo nix run nix-darwin -- switch --flake ~/.config/nix/.#simple";
-        update = "(cd ~/.config/nix && nix flake update)";
-      };
-    };
     wezterm = {
       enable = true;
       extraConfig = ''
@@ -189,6 +144,7 @@
           send_composed_key_when_left_alt_is_pressed = true,
           send_composed_key_when_right_alt_is_pressed = false,
           color_scheme = "Tokyo Night",
+          default_prog = { "${pkgs.nushell}/bin/nu" },
         }
       '';
     };
@@ -216,6 +172,7 @@
         font-family = Operator Mono Lig
         font-size = 16
         macos-option-as-alt = right
+        command = ${pkgs.nushell}/bin/nu
       '';
     };
   };
