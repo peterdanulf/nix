@@ -6,7 +6,7 @@ Install Nix using the Determinate Systems graphical installer: <https://determin
 
 ## Installation
 
-1. Install homebrew and then GitHub command-line tool using brew
+1. Install homebrew and then GitHub command-line tool using brew.
 
 2. Clone the dot files repository:
 
