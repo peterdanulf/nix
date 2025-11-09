@@ -47,7 +47,7 @@
     # Development tools moved from flake.nix
     pkgs.vim
     pkgs.gh
-    pkgs.gh-copilot
+    pkgs.github-copilot-cli
     pkgs.glow
     # Add Python with necessary packages
     (pkgs.python3.withPackages (ps:
