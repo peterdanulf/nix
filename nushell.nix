@@ -76,6 +76,10 @@ in {
       # Set PATH
       $env.PATH = ($env.PATH | split row (char esep))
 
+      # Add common macOS paths
+      $env.PATH = ($env.PATH | prepend "/usr/local/bin")
+      $env.PATH = ($env.PATH | prepend "/opt/homebrew/bin")
+
       # Add Determinate Nix to PATH
       $env.PATH = ($env.PATH | prepend "/nix/var/nix/profiles/default/bin")
       $env.PATH = ($env.PATH | prepend $"($env.HOME)/.nix-profile/bin")
