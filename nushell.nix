@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   zoxideInit = pkgs.runCommand "zoxide-init.nu" {} ''
     ${pkgs.zoxide}/bin/zoxide init nushell --cmd z > $out
@@ -72,6 +72,24 @@ in {
     '';
     envFile.text = ''
       # Nushell Environment Config File
+
+      # Basic environment
+      $env.EDITOR = "nvim"
+      $env.TERM = "xterm-256color"
+
+      # OpenSSL paths for cargo build
+      $env.OPENSSL_DIR = "${pkgs.openssl.dev}"
+      $env.OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib"
+      $env.OPENSSL_INCLUDE_DIR = "${pkgs.openssl.dev}/include"
+      $env.PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig"
+
+      # Load tokens if they exist
+      if ("~/.claude_oauth_token" | path expand | path exists) {
+          $env.CLAUDE_CODE_OAUTH_TOKEN = (open ~/.claude_oauth_token | str trim)
+      }
+      if ("~/.bws_access_token" | path expand | path exists) {
+          $env.BWS_ACCESS_TOKEN = (open ~/.bws_access_token | str trim)
+      }
 
       # Set PATH
       $env.PATH = ($env.PATH | split row (char esep))

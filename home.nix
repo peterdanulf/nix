@@ -101,6 +101,11 @@
 
     # Nix linter and formatter
     pkgs.statix
+
+    # Build dependencies for Rust/Cargo with OpenSSL
+    pkgs.pkg-config
+    pkgs.openssl
+    pkgs.libiconv
   ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -130,24 +135,7 @@
       };
     };
 
-    # Home Manager can also manage your environment variables through
-    # 'home.sessionVariables'. If you don't want to manage your shell through Home
-    # Manager then you have to manually source 'hm-session-vars.sh' located at
-    # either
-    #
-    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  /etc/profiles/per-user/peterdanulf/etc/profile.d/hm-session-vars.sh
-    #
-    sessionVariables = {
-      EDITOR = "nvim";
-      TERM = "xterm-256color";
-      # To add token: echo "your-token-here" > ~/.claude_oauth_token
-      CLAUDE_CODE_OAUTH_TOKEN = ''$(cat ${config.home.homeDirectory}/.claude_oauth_token)'';
-      BWS_ACCESS_TOKEN = ''$(cat ${config.home.homeDirectory}/.bws_access_token)'';
-    };
+    # Note: Environment variables are managed in nushell.nix since we're using Nushell as our shell
   };
 
   programs = {
