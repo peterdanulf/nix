@@ -35,7 +35,7 @@
         onActivation.autoUpdate = true;
         onActivation.cleanup = "uninstall";
         taps = [];
-        brews = ["gnu-sed"];
+        brews = ["gnu-sed" "postgresql@18"];
         casks = ["tailscale-app" "bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude"];
       };
 
