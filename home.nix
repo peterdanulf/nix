@@ -49,6 +49,7 @@
     pkgs.gh
     pkgs.github-copilot-cli
     pkgs.glow
+    pkgs.google-cloud-sdk
     # Add Python with necessary packages
     (pkgs.python3.withPackages (ps:
       with ps; [
