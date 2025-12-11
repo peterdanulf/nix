@@ -36,7 +36,7 @@
         onActivation.cleanup = "uninstall";
         taps = [];
         brews = ["gnu-sed" "postgresql@18"];
-        casks = ["tailscale-app" "bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude"];
+        casks = ["firefox" "tailscale-app" "bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude"];
       };
 
       # nix.package = pkgs.nix;
