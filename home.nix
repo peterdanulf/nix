@@ -7,9 +7,6 @@
     ./nushell.nix
   ];
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   home = {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
@@ -55,7 +52,6 @@
       with ps; [
         rapidfuzz
         pandas
-        openai-whisper
       ]))
 
     pkgs.gnused
@@ -75,9 +71,8 @@
     pkgs.mkcert
     pkgs.ruby_3_3
     pkgs.wget
-    pkgs.fzf
     pkgs.neovim
-    pkgs.sox
+    pkgs.neovim-remote
     pkgs.ngrok
     pkgs.yarn
     pkgs.bws
@@ -151,42 +146,17 @@
         user.email = "peter.danulf@gmail.com";
       };
     };
-    ssh = {
+    lazygit = {
       enable = true;
-      enableDefaultConfig = false;
-      matchBlocks = {
-        "*" = {
-          serverAliveInterval = 60;
-          serverAliveCountMax = 120;
-          extraOptions = {
-            TCPKeepAlive = "yes";
-            ForwardAgent = "no";
-            Compression = "no";
-            AddKeysToAgent = "no";
-            HashKnownHosts = "no";
-            UserKnownHostsFile = "~/.ssh/known_hosts";
-            ControlMaster = "no";
-            ControlPath = "~/.ssh/master-%r@%n:%p";
-            ControlPersist = "no";
-          };
+      settings = {
+        os = {
+          # Override the open command to use nvr (neovim-remote) instead of macOS open
+          # This ensures files opened from lazygit go to the running Neovim instance
+          # and don't trigger macOS Gatekeeper
+          open = "nvr --remote-silent {{filename}}";
+          openLink = "open {{link}}";
         };
       };
-      includes = [ "~/.orbstack/ssh/config" ];
-    };
-    wezterm = {
-      enable = true;
-      extraConfig = ''
-        local wez = require('wezterm')
-        return {
-          font = wezterm.font("Operator Mono Lig", {weight="DemiLight", stretch="Normal", style="Normal"}),
-          font_size = 16.0,
-          hide_tab_bar_if_only_one_tab = true,
-          send_composed_key_when_left_alt_is_pressed = true,
-          send_composed_key_when_right_alt_is_pressed = false,
-          color_scheme = "Tokyo Night",
-          default_prog = { "${pkgs.nushell}/bin/nu" },
-        }
-      '';
     };
   };
 

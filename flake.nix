@@ -26,7 +26,6 @@
       # $ nix-env -qaP | grep wget
       # Install packages from nixpkgs
       environment.systemPackages = with pkgs; [
-        google-cloud-sdk
         nushell
       ];
 
@@ -34,12 +33,9 @@
         enable = true;
         onActivation.autoUpdate = true;
         onActivation.cleanup = "uninstall";
-        taps = [];
         brews = ["gnu-sed" "postgresql@18"];
-        casks = ["bruno" "firefox" "tailscale-app" "bitwarden" "slack" "spotify" "wezterm" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude"];
+        casks = ["bruno" "firefox" "tailscale-app" "bitwarden" "slack" "spotify" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude"];
       };
-
-      # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
