@@ -59,6 +59,7 @@
       ]))
 
     pkgs.gnused
+    pkgs.azure-cli
     pkgs.sd
     pkgs.cocoapods
     pkgs.nodejs_24
