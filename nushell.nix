@@ -215,11 +215,24 @@ in {
         }
         git worktree add $dir -b $"pr-($pr)" $"origin/($branch)"
         cd $dir
+
+        # Run project-specific bootstrap if it exists (from origin dir)
+        let bootstrap_script = ($env.PR_REVIEW_ORIGIN | path join "scripts/pr-bootstrap.sh")
+        if ($bootstrap_script | path exists) {
+          bash $bootstrap_script --non-interactive --origin $env.PR_REVIEW_ORIGIN $pr
+        }
       }
 
       def --env pr-done [] {
         let dir = ($env.PWD | path basename)
         let branch = (git branch --show-current)
+
+        # Run project-specific cleanup if it exists (from origin dir)
+        let cleanup_script = ($env.PR_REVIEW_ORIGIN | path join "scripts/pr-cleanup.sh")
+        if ($cleanup_script | path exists) {
+          bash $cleanup_script
+        }
+
         cd $env.PR_REVIEW_ORIGIN
         git worktree remove $"../review/($dir)"
         git branch -D $branch
