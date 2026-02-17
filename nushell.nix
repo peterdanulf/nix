@@ -204,6 +204,27 @@ in {
         cd -
       }
 
+      # PR review worktree helpers
+      def --env pr-review [pr: int] {
+        $env.PR_REVIEW_ORIGIN = (pwd)
+        let branch = (gh pr view $pr --json headRefName -q .headRefName)
+        git fetch origin $branch
+        let dir = $"../review/pr-($pr)"
+        if ($dir | path exists) {
+          git worktree remove $dir --force
+        }
+        git worktree add $dir -b $"pr-($pr)" $"origin/($branch)"
+        cd $dir
+      }
+
+      def --env pr-done [] {
+        let dir = ($env.PWD | path basename)
+        let branch = (git branch --show-current)
+        cd $env.PR_REVIEW_ORIGIN
+        git worktree remove $"../review/($dir)"
+        git branch -D $branch
+      }
+
       # Load GitHub PR review dashboard
       source ${reviewsScript}
 
