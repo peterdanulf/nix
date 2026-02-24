@@ -253,6 +253,7 @@ in {
       # Basic environment
       $env.EDITOR = "nvim"
       $env.TERM = "xterm-256color"
+      $env.UID = (id -u)
 
       # OpenSSL paths for cargo build
       $env.OPENSSL_DIR = "${pkgs.openssl.dev}"
