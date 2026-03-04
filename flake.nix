@@ -34,7 +34,7 @@
         onActivation.autoUpdate = true;
         onActivation.cleanup = "uninstall";
         brews = ["gnu-sed" "postgresql@18"];
-        casks = ["bruno" "firefox" "tailscale-app" "bitwarden" "slack" "spotify" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude"];
+        casks = ["bruno" "firefox" "tailscale-app" "bitwarden" "slack" "spotify" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude" "karabiner-elements"];
       };
 
       # Necessary for using flakes on this system.

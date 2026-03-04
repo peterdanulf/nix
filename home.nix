@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./nushell.nix
+    ./karabiner.nix
   ];
 
   # Allow unfree packages
