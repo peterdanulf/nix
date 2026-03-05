@@ -63,6 +63,7 @@
     pkgs.sd
     pkgs.cocoapods
     pkgs.nodejs_24
+    pkgs.eas-cli
     pkgs.bun
     (pkgs.lib.hiPrio pkgs.claude-code)
     pkgs.ripgrep
