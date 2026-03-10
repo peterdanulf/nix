@@ -63,7 +63,7 @@
     pkgs.sd
     pkgs.cocoapods
     pkgs.nodejs_24
-    pkgs.eas-cli
+    # eas-cli installed via npm to get latest version (nix version is outdated)
     pkgs.bun
     (pkgs.lib.hiPrio pkgs.claude-code)
     pkgs.ripgrep
