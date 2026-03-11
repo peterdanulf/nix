@@ -81,6 +81,7 @@
     pkgs.neovim-remote
     pkgs.ngrok
     pkgs.yarn
+    pkgs.pnpm
     pkgs.bws
     pkgs.lazydocker
     pkgs.rustc
