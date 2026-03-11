@@ -62,6 +62,7 @@
     pkgs.azure-cli
     pkgs.sd
     pkgs.cocoapods
+    pkgs.fastlane
     pkgs.nodejs_24
     pkgs.eas-cli
     pkgs.bun
