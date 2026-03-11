@@ -63,7 +63,6 @@
     pkgs.sd
     pkgs.cocoapods
     pkgs.fastlane
-    pkgs.ios-deploy
     pkgs.nodejs_24
     pkgs.bun
     (pkgs.lib.hiPrio pkgs.claude-code)
