@@ -254,6 +254,10 @@ in {
       $env.EDITOR = "nvim"
       $env.TERM = "xterm-256color"
       $env.UID = (id -u)
+      $env.NODE_ENV = "development"
+
+      # NPM global packages in user directory (Nix store is read-only)
+      $env.NPM_CONFIG_PREFIX = $"($env.HOME)/.npm-global"
 
       # OpenSSL paths for cargo build
       $env.OPENSSL_DIR = "${pkgs.openssl.dev}"
@@ -282,6 +286,9 @@ in {
       # Add Determinate Nix to PATH
       $env.PATH = ($env.PATH | prepend "/nix/var/nix/profiles/default/bin")
       $env.PATH = ($env.PATH | prepend $"($env.HOME)/.nix-profile/bin")
+
+      # Add npm global packages to PATH
+      $env.PATH = ($env.PATH | prepend $"($env.HOME)/.npm-global/bin")
 
       # Add pub-cache to PATH
       $env.PATH = ($env.PATH | append $"($env.HOME)/.pub-cache/bin")
