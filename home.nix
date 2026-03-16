@@ -85,6 +85,7 @@
     pkgs.lazydocker
     pkgs.rustc
     pkgs.cargo
+    pkgs.rustfmt
     pkgs.rust-analyzer
     pkgs.mariadb.client
     pkgs.supabase-cli
