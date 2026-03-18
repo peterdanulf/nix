@@ -94,6 +94,7 @@
     pkgs.dust
     pkgs.procs
     pkgs.tealdeer
+    pkgs.opencv
 
     # PHP
     pkgs.php
