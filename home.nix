@@ -56,6 +56,7 @@
       with ps; [
         rapidfuzz
         pandas
+        opencv4
       ]))
 
     pkgs.gnused
@@ -94,7 +95,6 @@
     pkgs.dust
     pkgs.procs
     pkgs.tealdeer
-    pkgs.opencv
 
     # PHP
     pkgs.php
