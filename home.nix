@@ -57,6 +57,7 @@
         rapidfuzz
         pandas
         opencv4
+        psycopg2
       ]))
 
     pkgs.gnused
