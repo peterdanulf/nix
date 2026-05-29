@@ -92,6 +92,7 @@
     pkgs.rust-analyzer
     pkgs.mariadb.client
     pkgs.supabase-cli
+    pkgs.nodePackages.node-pg-migrate
     pkgs.duf
     pkgs.dust
     pkgs.procs
