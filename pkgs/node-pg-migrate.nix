@@ -29,6 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
     cp -r . $out/lib/node-pg-migrate/
     makeWrapper ${nodejs}/bin/node $out/bin/node-pg-migrate \
       --add-flags "$out/lib/node-pg-migrate/bin/node-pg-migrate.js"
+    ln -s $out/bin/node-pg-migrate $out/bin/pg-migrate
     runHook postInstall
   '';
 
