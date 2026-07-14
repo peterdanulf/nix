@@ -268,6 +268,9 @@ in {
       # Java (matches programs.java in home.nix)
       $env.JAVA_HOME = "${pkgs.jdk17}"
 
+      # Android SDK
+      $env.ANDROID_HOME = $"($env.HOME)/Library/Android/sdk"
+
       # Load tokens if they exist
       if ("~/.claude_oauth_token" | path expand | path exists) {
           $env.CLAUDE_CODE_OAUTH_TOKEN = (open ~/.claude_oauth_token | str trim)
@@ -292,6 +295,9 @@ in {
 
       # Add npm global packages to PATH
       $env.PATH = ($env.PATH | prepend $"($env.HOME)/.npm-global/bin")
+
+      # Add Android platform-tools to PATH
+      $env.PATH = ($env.PATH | append $"($env.HOME)/Library/Android/sdk/platform-tools")
 
       # Add pub-cache to PATH
       $env.PATH = ($env.PATH | append $"($env.HOME)/.pub-cache/bin")
