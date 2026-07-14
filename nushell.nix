@@ -265,6 +265,9 @@ in {
       $env.OPENSSL_INCLUDE_DIR = "${pkgs.openssl.dev}/include"
       $env.PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig"
 
+      # Java (matches programs.java in home.nix)
+      $env.JAVA_HOME = "${pkgs.jdk17}"
+
       # Load tokens if they exist
       if ("~/.claude_oauth_token" | path expand | path exists) {
           $env.CLAUDE_CODE_OAUTH_TOKEN = (open ~/.claude_oauth_token | str trim)
