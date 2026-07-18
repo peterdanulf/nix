@@ -296,6 +296,9 @@ in {
       # Add npm global packages to PATH
       $env.PATH = ($env.PATH | prepend $"($env.HOME)/.npm-global/bin")
 
+      # Add Claude Code native install to PATH
+      $env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
+
       # Add Android platform-tools to PATH
       $env.PATH = ($env.PATH | append $"($env.HOME)/Library/Android/sdk/platform-tools")
 
