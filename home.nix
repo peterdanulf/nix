@@ -150,6 +150,8 @@
   programs = {
     fzf = {
       enable = true;
+      # Atuin owns Ctrl-R in nushell (see nushell.nix programs.atuin)
+      historyWidget.nushell.command = "";
     };
     git = {
       enable = true;
