@@ -44,7 +44,7 @@ let
             ""
           } else {
             ($pr.assignees | each {|a|
-              $a.login | str upcase | split row "-" | each {|part|
+              $a.login | str uppercase | split row "-" | each {|part|
                 $part | str substring 0..0
               } | str join ""
             } | str join ", ")
@@ -63,7 +63,7 @@ let
           let all_reviewers = ($requested_reviewers | append $reviewed_logins | uniq | where {|login| $login != $author_login and $login != "copilot-pull-request-reviewer" and (($login not-in $assignee_logins) or ($login in $requested_reviewers) or ($login in $reviewed_logins)) })
 
           let review_states = ($all_reviewers | each {|login|
-            let initials = ($login | str upcase | split row "-" | each {|part| $part | str substring 0..0 } | str join "")
+            let initials = ($login | str uppercase | split row "-" | each {|part| $part | str substring 0..0 } | str join "")
             let user_reviews = ($non_copilot_reviews | where author.login == $login)
             let meaningful_reviews = ($user_reviews | where state == "APPROVED" or state == "CHANGES_REQUESTED")
             let in_review_requests = ($login in $requested_reviewers)
