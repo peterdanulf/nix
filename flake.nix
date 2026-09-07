@@ -34,7 +34,7 @@
         onActivation.autoUpdate = true;
         onActivation.cleanup = "uninstall";
         brews = ["gnu-sed" "postgresql@18"];
-        casks = ["rustdesk" "bruno" "firefox" "tailscale-app" "bitwarden" "slack" "spotify" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude" "karabiner-elements"];
+        casks = ["rustdesk" "bruno" "firefox" "tailscale-app" "bitwarden" "slack" "spotify" "arc" "sublime-text" "orbstack" "google-chrome" "chatgpt" "mimestream" "zed" "android-studio" "tableplus" "transmit" "microsoft-teams" "ghostty" "poedit" "flutter" "claude" "karabiner-elements" "scroll-reverser"];
       };
 
       # Necessary for using flakes on this system.
@@ -61,6 +61,16 @@
       system = {
         primaryUser = "peterdanulf";
         defaults = {
+          # scrolling: natural on trackpad (macOS default), reversed on mouse
+          # via Scroll Reverser.
+          NSGlobalDomain."com.apple.swipescrolldirection" = true;
+          CustomUserPreferences."com.pilotmoon.scroll-reverser" = {
+            InvertScrollingOn = true;
+            ReverseMouse = true;
+            ReverseTrackpad = false;
+            ReverseX = false;
+            ReverseY = true;
+          };
           # minimal dock
           dock = {
             autohide = true;
