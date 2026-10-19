@@ -278,6 +278,9 @@ in {
       if ("~/.bws_access_token" | path expand | path exists) {
           $env.BWS_ACCESS_TOKEN = (open ~/.bws_access_token | str trim)
       }
+      if ("~/.ds_npm_token" | path expand | path exists) {
+          $env.DS_NPM_GITHUB_TOKEN_READ = (open ~/.ds_npm_token | str trim)
+      }
 
       # Set PATH
       $env.PATH = ($env.PATH | split row (char esep))
