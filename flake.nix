@@ -61,16 +61,18 @@
       system = {
         primaryUser = "peterdanulf";
         defaults = {
-          # scrolling: natural on trackpad (macOS default), reversed on mouse
-          # via Scroll Reverser.
-          NSGlobalDomain."com.apple.swipescrolldirection" = true;
+          # scrolling: traditional (like Linux) on both mouse and trackpad;
+          # Scroll Reverser installed but not reversing anything.
+          NSGlobalDomain."com.apple.swipescrolldirection" = false;
           CustomUserPreferences."com.pilotmoon.scroll-reverser" = {
             InvertScrollingOn = true;
-            ReverseMouse = true;
+            ReverseMouse = false;
             ReverseTrackpad = false;
             ReverseX = false;
             ReverseY = true;
           };
+          # mouse tracking speed (System Settings slider: 0–3, macOS default 1)
+          ".GlobalPreferences"."com.apple.mouse.scaling" = 2.0;
           # minimal dock
           dock = {
             autohide = true;
