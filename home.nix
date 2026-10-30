@@ -86,6 +86,7 @@
     pkgs.bws
     pkgs.lazydocker
     pkgs.herdr
+    pkgs.m1ddc
     pkgs.rustc
     pkgs.cargo
     pkgs.rustfmt
