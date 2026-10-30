@@ -85,6 +85,7 @@
     pkgs.pnpm
     pkgs.bws
     pkgs.lazydocker
+    pkgs.herdr
     pkgs.rustc
     pkgs.cargo
     pkgs.rustfmt
