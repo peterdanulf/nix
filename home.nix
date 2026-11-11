@@ -76,7 +76,7 @@
     pkgs.bottom
     pkgs.zoxide
     pkgs.mkcert
-    pkgs.ruby_3_3
+    pkgs.ruby_3_4
     pkgs.wget
     pkgs.neovim
     pkgs.neovim-remote
@@ -95,7 +95,7 @@
     pkgs.mariadb.client
     pkgs.supabase-cli
     (pkgs.callPackage ./pkgs/node-pg-migrate.nix {}) # not in nixpkgs after nodePackages removal
-    (pkgs.callPackage ./pkgs/eas-cli/package.nix {}) # nixpkgs eas-cli lags upstream, pin latest here
+    pkgs.eas-cli
     pkgs.duf
     pkgs.dust
     pkgs.procs
