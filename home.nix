@@ -65,7 +65,7 @@
     pkgs.sd
     pkgs.cocoapods
     pkgs.fastlane
-    pkgs.nodejs_24
+    pkgs.nodejs_26
     pkgs.bun
     (pkgs.lib.hiPrio pkgs.claude-code)
     pkgs.ripgrep
